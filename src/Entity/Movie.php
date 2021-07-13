@@ -33,7 +33,7 @@ class Movie
     private $director;
 
     /**
-     * @ORM\Column(type="date")
+     * @ORM\Column(type="string", length=255)
      */
     private $year;
 
@@ -48,9 +48,9 @@ class Movie
     private $rate;
 
     /**
-     * @ORM\Column(type="json", nullable=true)
+     * @ORM\Column(type="text")
      */
-    private $genre = [];
+    private $genre;
 
     public function getId(): ?int
     {
@@ -93,24 +93,24 @@ class Movie
         return $this;
     }
 
-    public function getYear(): ?\DateTimeInterface
+    public function getYear(): ?string
     {
         return $this->year;
     }
 
-    public function setYear(\DateTimeInterface $year): self
+    public function setYear(string $year): self
     {
         $this->year = $year;
 
         return $this;
     }
 
-    public function getRuntime(): ?int
+    public function getRuntime(): ?string
     {
         return $this->runtime;
     }
 
-    public function setRuntime(int $runtime): self
+    public function setRuntime(string $runtime): self
     {
         $this->runtime = $runtime;
 
@@ -129,12 +129,12 @@ class Movie
         return $this;
     }
 
-    public function getGenre(): ?array
+    public function getGenre(): ?string
     {
         return $this->genre;
     }
 
-    public function setGenre(?array $genre): self
+    public function setGenre(string $genre): self
     {
         $this->genre = $genre;
 

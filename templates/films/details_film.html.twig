@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<article class="container">
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <a href="{{ app.request.headers.get('referer') }}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
+                    class="fas fa-arrow-left fa-sm text-white-50"></i> Retour page précédente</a>
+    </div>
+
+    <div class="row">
+        <div class="col s12 m12 l8 offset-l2">
+            <h2>{{ film.title }}</h2>
+            <span>{{ film.director }} - {{ film.year }} </span>
+            <p>
+            </p>
+            <span class="categories">{{ film.genre }}  <br></span>
+        </div>
+    </div>
+    <div class="row">
+
+        <div class="col s12 m12 l8 offset-l2">
+            <p>
+                {{ film.description }}
+            </p>
+
+        </div>
+</article>
+{% endblock %}
