@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1> Test technique </h1>
+    <h2>Explication</h2>
+
+
+    <h3 class="uk-heading-divider">Les questions</h3>
+    <ul>
+        <li>
+            <strong>Question 1</strong> : <a href="">service web restful <span class="uk-badge">Symfony, Doctrine</span></a>
+            <p>
+                Exposer un service web restful permettant de prendre en entrée(paramètre) <code>une liste de nombre</code>  et  <code>un paramètre order </code>, et qui retourne <code> la liste triée dans l'ordre spécifié('croissant', ou 'décroissant') par le paramètre order </code>
+            </p>
+        </li>
+        <li>
+            <strong>Question 2</strong> : <a href="{{ path('liste_marques') }}">Interface web <span class="uk-badge">Symfony, Ajax , javascript</span></a>
+            <p>
+                Faites une interface web qui permet de rentrer <code> une liste de X nombres </code>  et <code> l'ordre de de tri </code>  avec en plus un bouton <code> "Trier" </code> qui permet d'envoyer les données au web service de tri et d'afficher les résultats.
+            </p>
+        </li>
+    </ul>
+    <h3 class="uk-heading-divider">Consignes</h3>
+    <ul>
+        <li>
+            <strong>Utiliser Symfony pour le web service</strong>
+        </li>
+        <li>
+            <code> <strong>Écrire soi même l'algo de tri(Ne pas utiliser de fonctions de tri)</strong> </code>
+        </li>
+        <li>
+            <strong>Vanilla Javascript, REACT ou Angular pour le frontend</strong>
+        </li>
+    </ul>
+
+{% endblock %}
+
