@@ -32,21 +32,11 @@ class ImportCommand extends Command
         parent::__construct();
     }
 
-  /*  protected function configure()
+   protected function configure()
     {
-        // Name and description for app/console command
-        $this
-            ->setDescription('Import data in db sqlite')
-            ->addArgument('id',InputArgument::REQUIRED,'id movie')
-            ->addArgument('title',InputArgument::REQUIRED,'title movie')
-            ->addArgument('genre',InputArgument::REQUIRED,'genre movie')
-            ->addArgument('description',InputArgument::REQUIRED,'description movie')
-            ->addArgument('director',InputArgument::REQUIRED,'director movie')
-            ->addArgument('year',InputArgument::REQUIRED,'year movie')
-            ->addArgument('runtime',InputArgument::REQUIRED,'runtime movie')
-            ->addArgument('rate',InputArgument::REQUIRED,'runtime movie');
 
-    }*/
+
+    }
 
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
@@ -67,6 +57,7 @@ class ImportCommand extends Command
             $this->entityManager->persist($movie);
         }
         $this->entityManager->flush();
+
 
         $io = new SymfonyStyle($input, $output);
 
