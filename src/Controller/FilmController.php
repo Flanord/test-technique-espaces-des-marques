@@ -8,6 +8,9 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\KernelInterface;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Serializer\Encoder\XmlEncoder;
+use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
+use Symfony\Component\Serializer\Serializer;
 
 class FilmController extends AbstractController
 {
@@ -50,6 +53,29 @@ class FilmController extends AbstractController
         }
 
     }
+
+    /**
+     * @Route("/film/xml", name="app_film_xml")
+     */
+    public function  getXml():Response
+    {
+        $serializer = new Serializer(
+                [new ObjectNormalizer()],
+                [new XmlEncoder()]
+            );
+             $projectRoot = $this->appKernel->getProjectDir();
+            $html = $projectRoot . '/config/packages/movies/movies.xml';
+            $data = simplexml_load_file($html);
+            $movies = [];
+            foreach ($data as $value) {
+                $movies[] = $serializer
+                    ->deserialize($value->asXML(), Movie::class, 'xml');
+            }
+
+            dd($movies);
+    }
+
+
 
 
 }
